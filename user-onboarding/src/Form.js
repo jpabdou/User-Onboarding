@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import * as yup from "yup";
-import { useResolvedPath } from "react-router-dom";
 
 export default function Form(){
     const starterForm = {fname:"", lname:"",email: "", password:"", terms:false}
@@ -77,10 +76,10 @@ export default function Form(){
                     Accept the Terms & Conditons?<br></br>
                     <input onChange={onChange} name="terms" type="checkbox" checked={form.terms} />
                 </label><br></br>
-                <h6>{errors.fname} {errors.lname} {errors.email} {errors.password} {errors.terms}</h6>
-                <button disabled={disabled}>Submit Info</button>
+                <h6 id="error-log">{errors.fname} {errors.lname} {errors.email} {errors.password} {errors.terms}</h6>
+                <button id="submitBtn" disabled={disabled}>Submit Info</button>
             </form>
-            <pre>{JSON.stringify(users)}</pre>
+            <pre id="entries-log">{JSON.stringify(users)}</pre>
         </div>
     )
 }
